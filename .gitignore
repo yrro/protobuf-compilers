@@ -1,0 +1,7 @@
+/*.dsc
+/keyring.gpg*
+/protobuf-*/
+/stamp-*
+/*.tar.*
+/protoc-*
+/protoc-gen-objc-*

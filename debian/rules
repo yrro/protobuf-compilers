@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+CXXFLAGS := -g
+ifneq ($(filter noopt,$(DEB_BUILD_OPTIONS)),)
+    CXXFLAGS += -O0
+else
+    CXXFLAGS += -O2
+endif
+
+ifneq ($(filter parallel=%,$(DEB_BUILD_OPTIONS)),)
+    NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+    MAKEFLAGS += -j$(NUMJOBS)
+endif
+
+%:
+	dh $@ --with bbm_info
+
+.PHONY: override_dh_strip
+override_dh_strip:
+	dh_strip --dbg-package=protobuf-compilers-dbg
+
+.PHONY: override_dh_auto_build
+override_dh_auto_build:
+	CXXFLAGS='$(CXXFLAGS)' $(MAKE)
+
+# vim: ts=4 sts=0 sw=4 noet

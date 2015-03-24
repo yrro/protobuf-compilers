@@ -1,0 +1,26 @@
+Source: protobuf-compilers
+Maintainer: Sam Morris <sam@blinkbox.com>
+Build-Depends:
+ autoconf,
+ automake,
+ ca-certificates,
+ debhelper,
+ devscripts,
+ dh-bbm-info,
+ git,
+ gnupg,
+ libtool,
+ wget,
+Homepage: https://github.com/we7/protobuf-compilers/
+VCS-Browser: https://github.com/we7/protobuf-compilers/
+VCS-Git: https://github.com/we7/protobuf-compilers.git
+
+Package: protobuf-compilers
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Google Protocol Buffer compilers
+ Statically-linked builds of several versions of protoc and protoc-gen-objc.
+
+Package: protobuf-compilers-dbg
+Architecture: any
+Description: Google Protocol Buffer compilers (debug symbols)

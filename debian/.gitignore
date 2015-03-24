@@ -1,0 +1,5 @@
+/*.log
+/*.substvars
+/protobuf-compilers/
+/protobuf-compilers-dbg/
+/files
